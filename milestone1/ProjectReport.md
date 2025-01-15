@@ -34,20 +34,20 @@ Summary
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
 
-|What Went Well|
-|--|
-|something|
-|something|
-|something|
-|something|
+| What Went Well |
+| -------------- |
+| something      |
+| something      |
+| something      |
+| something      |
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
-|What Did Not Go Well|Action Plan|Due Date
-|--|--|--|
-|something|something|something|
-|something|something|something|
-|something|something|something|
+| What Did Not Go Well | Action Plan | Due Date  |
+| -------------------- | ----------- | --------- |
+| something            | something   | something |
+| something            | something   | something |
+| something            | something   | something |
 
 ## Design Documentation
 ### Install Instruction
@@ -79,17 +79,19 @@ The risk of not meeting the deadline due to unforseen issues arises.
 - Learning Curve: The project uses Spring Boot features we learn through the weeks; the risk of unfamilarity can cause issues with handeling error and the set up for the CRUD operations.
 
 ### ER Diagram:
-
+- Image file of your ER database diagram. 
 
 ### DDL Scripts:
+- This should contain a link to Bitbucket wherefrom the DDL script can be downloaded. 
 
 ### Sitemap Diagram:
+- Image file of your Sitemap diagram. 
 
 ### User Interface Diagrams:
-
+You should insert any wireframe drawings or whiteboard concepts that were developed to support your application. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
 
 ### Class Diagrams:
-
+You should insert any class diagrams here. Your class diagrams should be drawn correctly with the 3 appropriate class compartments, + and – minus to indicate accessibility, and also the data types for the state/properties as well as method arguments and return types. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
 
 
 ### Service API Design:
@@ -336,5 +338,5 @@ All errors return the following JSON format:
     - **RBAC**  
         - Users will be restricted specific actions whereas Admins will have the ability to do everything. 
      
-### Other Document:
+### Other Documentation:
 You should insert any additional drawings, storyboards, whiteboard pictures, project schedules, tasks lists, etc. that support your approach, design, and project. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A
