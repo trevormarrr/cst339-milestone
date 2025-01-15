@@ -8,7 +8,7 @@ This is a Collaborative Learning Community (CLC) assignment. In this course, the
 ## Requirements
 
 ### Review Project Overview
-- Examine the project requirements in the **"CST-339 CLC Project Overview"** found in the parent directory.
+- Examine the project requirements in the **"CST-339 CLC Project Overview"**
 
 ### Complete the Following Tasks:
 1. **Project Proposal**
@@ -43,7 +43,7 @@ This is a Collaborative Learning Community (CLC) assignment. In this course, the
      - The domain and products managed by the application.
      - The high-level features and functionality of the application.
 
-2. **Initial Design Report** (using the provided "CST-339 Project Design Report Template"):
+2. **Initial Design Report** [Show Report](ProjectReport.md)
    - **Cover Page**: List of completed tasks.
    - **Planning Documentation**:
      - Outline of how the project will be managed.
