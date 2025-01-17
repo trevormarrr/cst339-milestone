@@ -6,7 +6,7 @@
 
     - More information if needed.
 
--  Date: 
+-  Date: 2025-01-14
 
 -  Revision: 1.0
 ### Team:
@@ -94,200 +94,212 @@ You should insert any wireframe drawings or whiteboard concepts that were develo
 You should insert any class diagrams here. Your class diagrams should be drawn correctly with the 3 appropriate class compartments, + and – minus to indicate accessibility, and also the data types for the state/properties as well as method arguments and return types. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
 
 
-### Service API Design:
-#### User Authentication
----
-#### POST /auth/login
+# Service API Design
+
+## User Authentication
+
+
+### **POST /auth/login**  
 Authenticate the user and provide a token.
 
-**Request Body**
+**Request Body**  
 ```json
 {
-"username": "admin@example.com",
-"password": "YourSecurePassword123!"
+  "username": "example@example.com",
+  "password": "Password123!"
 }
 ```
 
-***Response***
+**Response**  
 ```json
 {
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  "token": "tkHjfnscHg7jfqg11NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
-&nbsp;
-#### POST /auth/register
+
+---
+
+### **POST /auth/register**  
 Register a new user.
 
-**Request Body**
+**Request Body**  
 ```json
 {
-"username": "user@example.com",
-"password": "YourSecurePassword123!",
-"role": "USER"
+  "username": "example@example.com",
+  "password": "Password123!",
+  "role": "Member"
 }
 ```
-***Response***
+
+**Response**  
 ```json
 {
-"message": "User registered successfully",
-"userId": 123
+  "message": "User successfully registered",
+  "userId": 1
 }
 ```
-&nbsp;
 
-### Movies Management (Admin Only)
----
-#### GET /movies
-Retrieve a list of all movies.
 
-***Response***
+
+## Book Management (Admin)
+
+### **GET /books**  
+Retrieve a list of all books.
+
+**Response**  
 ```json
 [
-{
-"id": 1,
-"title": "Inception",
-"genre": "Sci-Fi",
-"releaseYear": 2010,
-"rating": 8.8
-},
-{
-"id": 2,
-"title": "The Godfather",
-"genre": "Crime",
-"releaseYear": 1972,
-"rating": 9.2
-}
+  {
+    "id": 1,
+    "title": "Book 1",
+    "genre": "Sci-Fi",
+    "author": "John Appleseed",
+    "year": 2000,
+    "checkedOut": true
+  },
+  {
+    "id": 2,
+    "title": "Book 2",
+    "genre": "Fiction",
+    "author": "Johnny Seedapple",
+    "year": 2020,
+    "checkedOut": false
+  }
 ]
 ```
-&nbsp;
 
-#### POST /movies
-Add a new movie to the catalog (Admin only).
 
-**Request Body**
+### **POST /books**  
+Add a new book to the catalog (Admin only).
+
+**Request Body**  
 ```json
 {
-"title": "The Matrix",
-"genre": "Sci-Fi",
-"releaseYear": 1999,
-"rating": 8.7
+  "title": "Book 3",
+  "genre": "Non-Fiction",
+  "author": "Old Apple John",
+  "year": 2025,
+  "checkedOut": false
 }
 ```
 
-***Response***
+**Response**  
 ```json
 {
-"message": "Movie added successfully",
-"movieId": 3
-}
-```
-&nbsp;
-
-#### PUT /movies/{id}
-Update a movie's details (Admin only).
-
-**Path Parameter**
-
-id: The ID of the movie to update.
-
-**Request Body**
-```json
-{
-"title": "The Matrix Reloaded",
-"genre": "Sci-Fi",
-"releaseYear": 2003,
-"rating": 7.2
+  "message": "Book added successfully",
+  "id": 3
 }
 ```
 
-***Response***
+
+### **PUT /books/{id}**  
+Update a book's details (Admin only).
+
+**Path Parameter**  
+`id`: The ID of the book to update.
+
+**Request Body**  
 ```json
 {
-"message": "Movie updated successfully"
-}
-```
-&nbsp;
-
-#### DELETE /movies/{id}
-Delete a movie from the catalog (Admin only).
-
-**Path Parameter**
-
-id: The ID of the movie to delete.
-
-**Response**
-```json
-{
-"message": "Movie deleted successfully"
-}
-```
-&nbsp;
-
-### Shopping Cart (User)
----
-#### POST /cart
-Add a movie to the shopping cart.
-
-**Request Body**
-```json
-{
-"movieId": 1,
-"quantity": 1
+  "title": "Book 3",
+  "genre": "Biography",
+  "author": "Old Apple John",
+  "year": 2023,
+  "checkedOut": true
 }
 ```
 
-***Response***
+**Response**  
 ```json
 {
-"message": "Movie added to cart"
+  "message": "Book updated successfully"
 }
 ```
-&nbsp;
 
-#### GET /cart
+
+### **DELETE /books/{id}**  
+Delete a book from the catalog (Admin only).
+
+**Path Parameter**  
+`id`: The ID of the book to delete.
+
+**Response**  
+```json
+{
+  "message": "Book deleted successfully"
+}
+```
+
+
+## Book Bag (User)
+
+
+### **POST /cart**  
+Add a book to the book bag.
+
+**Request Body**  
+```json
+{
+  "id": 1,
+  "quantity": 1
+}
+```
+
+**Response**  
+```json
+{
+  "message": "Book added to Book Bag"
+}
+```
+
+
+### **GET /cart**  
 Retrieve the contents of the shopping cart.
 
-***Response***
+**Response**  
 ```json
 [
-{
-"movieId": 1,
-"title": "Inception",
-"quantity": 1,
-"price": 3.99
-},
-{
-"movieId": 2,
-"title": "The Godfather",
-"quantity": 2,
-"price": 5.99
-}
+  {
+    "id": 1,
+    "title": "Book 1",
+    "genre": "Sci-Fi",
+    "author": "John Appleseed",
+    "year": 2000,
+    "checkedOut": true
+  },
+  {
+    "id": 2,
+    "title": "Book 2",
+    "genre": "Fiction",
+    "author": "Johnny Seedapple",
+    "year": 2020,
+    "checkedOut": false
+  }
 ]
 ```
-&nbsp;
 
-#### DELETE /cart/{movieId}
-Remove a movie from the shopping cart.
+### **DELETE /cart/{bookId}**  
+Remove a book from the book bag.
 
-**Path Parameter**
+**Path Parameter**  
+`bookId`: The ID of the book to remove.
 
-movieId: The ID of the movie to remove.
-
-***Response***
+**Response**  
 ```json
 {
-"message": "Movie removed from cart"
+  "message": "Book removed from Book Bag"
 }
 ```
-&nbsp;
 
-### Error Responses
----
-All errors return the following JSON format:
+## Error Responses
+
+All error responses follow this JSON format:
+
+**Response**  
 ```json
 {
-"error": "Unauthorized",
-"message": "You are not allowed to perform this action"
+  "error": "Unauthorized",
+  "message": "You are not allowed to perform this action"
 }
 ```
 ### Security Design:
@@ -340,3 +352,7 @@ All errors return the following JSON format:
      
 ### Other Documentation:
 You should insert any additional drawings, storyboards, whiteboard pictures, project schedules, tasks lists, etc. that support your approach, design, and project. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A
+
+
+
+
