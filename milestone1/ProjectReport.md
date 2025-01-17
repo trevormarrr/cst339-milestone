@@ -90,6 +90,18 @@ The risk of not meeting the deadline due to unforseen issues arises.
 
 ### User Interface Diagrams:
 You should insert any wireframe drawings or whiteboard concepts that were developed to support your application. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
+![HomePage](homepage.png)
+![RegisterPage](registerpage.png)
+![RegSuccessPage](registrationsuccessful.png)
+![LoginPage](loginpage.png)
+![LogSuccessPage](loginsuccess.png)
+![ShoppingCartPage](shoppingcart.png)
+![CheckoutPage](checkoutpage.png)
+![LogoutPage](logoutpage.png)
+![UpdateBookPage](updatebookpage.png)
+![CreateBookPage](createbookpage.png)
+![DeleteBookPage](deletebookpage.png)
+
 
 ### Class Diagrams:
 You should insert any class diagrams here. Your class diagrams should be drawn correctly with the 3 appropriate class compartments, + and – minus to indicate accessibility, and also the data types for the state/properties as well as method arguments and return types. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
