@@ -82,14 +82,12 @@ The risk of not meeting the deadline due to unforseen issues arises.
 - Image file of your ER database diagram. 
 
 ### DDL Scripts:
-- This should contain a link to Bitbucket wherefrom the DDL script can be downloaded. 
+- https://github.com/trevormarrr/cst339-milestone/tree/main/milestone1/ddl-scripts
 
 ### Sitemap Diagram:
-- Image file of your Sitemap diagram. 
 ![SiteMapDiagram](sitemapDiagram.png)
 
 ### User Interface Diagrams:
-You should insert any wireframe drawings or whiteboard concepts that were developed to support your application. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A.
 ![HomePage](homepage.png)
 ![RegisterPage](registerpage.png)
 ![RegSuccessPage](registrationsuccessful.png)
@@ -118,8 +116,8 @@ Authenticate the user and provide a token.
 **Request Body**  
 ```json
 {
-  "username": "example@example.com",
-  "password": "Password123!"
+  "username": "username",
+  "password": "Password123!",
 }
 ```
 
@@ -138,7 +136,10 @@ Register a new user.
 **Request Body**  
 ```json
 {
-  "username": "example@example.com",
+  "firstName": "John",
+  "lastName": "Appleseed",
+  "username": "username",
+  "email": "example@example.com",
   "password": "Password123!",
   "role": "Member"
 }
