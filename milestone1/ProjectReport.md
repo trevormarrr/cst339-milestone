@@ -56,11 +56,11 @@ Step-by-step instructions for setting up your database, and configuring and depl
 ### General Technical Approach:
 Add data here.
 - The App needs:
-  - a database of movies.
-  - a databse of users with usernames and passwords.
+  - a database of books.
+  - the same database of users with user info
     - Two different types of users:
       - Admins have access to CRUD operations.
-      - Customers have access to view the inventory, adding and removing from the shooping cart, and to checkout.
+      - Customers have access to view the inventory, adding and removing from the book bag, and to checkout.
 
 ### Key Technical Design Decisions:
 - Spring Boot: Spring tools help Java development effiecency. 
@@ -72,20 +72,18 @@ Add data here.
 Any anomalies or known issues in the code or functionality should be documented here
 
 ### Risks:
-- Time Constraint: The project timeline could be challenging to keep up with while keeping up with other academic responsibilities.
-The risk of not meeting the deadline due to unforseen issues arises.
-- Team Collaboration: The communication and coordination for any challenges within the team can cause the risk of delayed integration.
-- Database Integration: The project requires the use of a database, risk of issues can arise for integration with the project and the relational databse, schema issues.
-- Learning Curve: The project uses Spring Boot features we learn through the weeks; the risk of unfamilarity can cause issues with handeling error and the set up for the CRUD operations.
+- **Time Constraints:** Balancing the project timeline alongside other academic responsibilities could be challenging. Unforeseen issues may increase the risk of missing deadlines.  
+- **Team Collaboration:** Ineffective communication or coordination within the team could lead to delays in integration and slower progress.  
+- **Database Integration:** Integrating the database into the project presents potential challenges, including schema design issues or compatibility problems with the relational database.  
+- **Learning Curve:** As the project relies on gradually learning and applying Spring Boot features, unfamiliarity with the framework could lead to difficulties in handling errors, setting up CRUD operations, and ensuring smooth implementation.  
 
 ### ER Diagram:
 - Image file of your ER database diagram. 
 
 ### DDL Scripts:
-- This should contain a link to Bitbucket wherefrom the DDL script can be downloaded. 
+- https://github.com/trevormarrr/cst339-milestone/tree/main/milestone1/ddl-scripts
 
 ### Sitemap Diagram:
-- Image file of your Sitemap diagram. 
 ![SiteMapDiagram](sitemapDiagram.png)
 
 ### User Interface Diagrams:
@@ -116,8 +114,8 @@ Authenticate the user and provide a token.
 **Request Body**  
 ```json
 {
-  "username": "example@example.com",
-  "password": "Password123!"
+  "username": "username",
+  "password": "Password123!",
 }
 ```
 
@@ -136,7 +134,10 @@ Register a new user.
 **Request Body**  
 ```json
 {
-  "username": "example@example.com",
+  "firstName": "John",
+  "lastName": "Appleseed",
+  "username": "username",
+  "email": "example@example.com",
   "password": "Password123!",
   "role": "Member"
 }
@@ -316,48 +317,36 @@ All error responses follow this JSON format:
 ### Security Design:
 
 1. **Authentication Mechanism**
-   - **User Authentication**  
-     Our project will be using two-factor authentication with a username and password and verification code.
 
    - **Flow**  
-     After a user types in their credentials, the system will verify them against the database then prompt them for second factor.
+     After a user types in their credentials, the system will verify them against the database and then grant an auth token.
 
    - **Credential Storage**  
-     Credentials will be stored in the database and passwords will be hashed for encryption. Verification codes will not be stored.
-
-   - **Session Management**  
-     Sessions will be stored using Redis for scalability and better performance. Sessions will expire after 90 minutes of no activity.
+     Credentials will be stored in the database and passwords will be hashed for encryption.
 
    - **Password Requirements**  
-     - One uppercase letter  
+     - One uppercase letter
+     - One lowercase letter
      - One special character  
-     - One number  
-     - Non-sequential characters (letters or numbers)  
-     - Minimum of ten characters  
-     - Maximum of twenty characters
+     - One number
 
 2. **Authorization Mechanism**
    - **Role-Based Access Control(RBAC)**  
      - Admin 
-        - Create New DVD
-        - Update DVD
-        - Delete DVD
+        - Create New Book
+        - Update Book
+        - Delete Book
         - View Inventory 
         - Login 
         - Register
      - User
-        - View DVDs
-        - Update Library with favorites
+        - View Books
         - Login
         - Register
 
 3. **Security Features**
-    - **Two-Factor Authentication**  
-        - Password creation with specified requirements and verification code
     - **Encryption**  
         - Password will be hashed before stored into database and data will be encrypted during transit using HTTPS
-    - **Session Expiration**  
-        - Users will be automatically logged out of their account after 90 minutes of no activity.
     - **RBAC**  
         - Users will be restricted specific actions whereas Admins will have the ability to do everything. 
      
