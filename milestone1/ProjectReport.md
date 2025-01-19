@@ -78,7 +78,7 @@ Any anomalies or known issues in the code or functionality should be documented 
 - **Learning Curve:** As the project relies on gradually learning and applying Spring Boot features, unfamiliarity with the framework could lead to difficulties in handling errors, setting up CRUD operations, and ensuring smooth implementation.  
 
 ### ER Diagram:
-- Image file of your ER database diagram. 
+![ERDiagram](erdiagram.png)
 
 ### DDL Scripts:
 - https://github.com/trevormarrr/cst339-milestone/tree/main/milestone1/ddl-scripts
