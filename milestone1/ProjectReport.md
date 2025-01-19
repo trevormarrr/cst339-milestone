@@ -14,7 +14,7 @@
 2. Trevor Marr
 
 ### Weekly Team Status Summary (UseCase)
-
+![UserCase](usercase.png)
 
 ### GIT URL
 - The git URL that can be used to clone your code and design artifacts
