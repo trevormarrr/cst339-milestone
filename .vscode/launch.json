@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MilestoneApplication<milestone>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.gcu.milestone.MilestoneApplication",
+            "projectName": "milestone",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
