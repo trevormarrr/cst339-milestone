@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- Common Header Fragment -->
+<div th:fragment="header">
+    <div align="center">
+        <h1>Welcome to Our Online Bookstore</h1>
+    </div>
+
+    <div class="bs-example">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle for mobile display -->
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">CLC BookStore</a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/books">Browse Books</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/bestsellers">Bestsellers</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/cart">Cart</a></li>
+                    <li><a href="/account">My Account</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Title -->
+    <h2 th:text="${title}">Welcome to our Bookstore</h2><br>
+    <img th:src="@{/images/book.png}" style="width: 60px; height: auto;" alt="Bookstore Logo" /><br><br>
+</div>
+
+<!-- Common Footer Fragment -->
+<div th:fragment="footer">
+    <h5 style="color: #333; text-align: center; position: fixed; bottom: 0; width: 100%; background-color: #f8f8f8; padding: 10px;">
+        &copy; 2025 Book Store  - Grand Canyon University (CST-339)
+    </h5>
+</div>
+
+</html>
