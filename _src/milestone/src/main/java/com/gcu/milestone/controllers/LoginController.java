@@ -31,14 +31,14 @@ public class LoginController {
 
         for (User u : users) {
             if (u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
-                return "redrect:/index";
+                return "redirect:/index";
 
             }
 
         }
 
-        model.addAttribute("loginError", "Invalid isername or password");
-        return "index";
+        model.addAttribute("loginError", "Invalid username or password");
+        return "login";
 
     }
 

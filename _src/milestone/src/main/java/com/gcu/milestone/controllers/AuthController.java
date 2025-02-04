@@ -39,7 +39,7 @@ public class AuthController {
         // If login is successful, add the user object to the model and redirect to the
         // home page
         model.addAttribute("user", existingUser);
-        return "home"; // The page to redirect to after a successful login
+        return "index"; // The page to redirect to after a successful login
     }
 
     // Display the registration page (if needed)
