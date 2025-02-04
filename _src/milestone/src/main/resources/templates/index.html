@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title th:text="${title}">Home</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
 <body>
-    <h1>Welcome to Our Application</h1>
-    <p>Use the menu to navigate.</p>
+	<div layout:fragment="content">
+		<a href="/login/">Login</a>
+		<br>
+		<a href="/register/">Create an Account</a>
+	</div>
 </body>
 </html>
