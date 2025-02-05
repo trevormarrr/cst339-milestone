@@ -40,10 +40,10 @@ The following table should be completed after each Retrospective on things that 
 
 | What Went Well |
 | -------------- |
-| something      |
-| something      |
-| something      |
-| something      |
+| we did the login page      |
+| we did the registration page      |
+| we did the dashboard page      |
+| we did the index page |
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
