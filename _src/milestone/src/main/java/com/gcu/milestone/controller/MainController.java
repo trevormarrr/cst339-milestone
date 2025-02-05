@@ -17,16 +17,17 @@ public class MainController {
         return "index";
     }
 
-   @GetMapping("dashboard")
-public String displayDashboard(Model model) {
-    model.addAttribute("title", "My Dashboard");
+    @GetMapping("dashboard")
+    public String displayDashboard(Model model) {
+        model.addAttribute("title", "My Dashboard"); // title to dashpage
 
-    // Ensure loginModel is set
-    if (!model.containsAttribute("loginModel")) {
-        model.addAttribute("loginModel", new LoginModel()); // Use an appropriate default object
+        // Ensure loginModel is set
+        // checks if loginmodel data is available for dashboard
+        if (!model.containsAttribute("loginModel")) {
+            model.addAttribute("loginModel", new LoginModel()); // Use an appropriate default object
+        }
+
+        return "dashboard";
     }
-
-    return "dashboard";
-}
 
 }

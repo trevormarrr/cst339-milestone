@@ -25,11 +25,12 @@ public class RegistrationController {
     @PostMapping("/doRegister")
     public String doRegister(@Valid RegistrationModel registrationModel, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("title", "User Registration");
-            return "register";
+            model.addAttribute("title", "User Registration"); // title to registration
+            return "register"; // if register fail, remain in page
         }
 
         // Simulating successful registration
+        // display success page
         model.addAttribute("message", "Registration successful! You can now log in.");
         return "register";
     }
