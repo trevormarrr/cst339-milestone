@@ -75,5 +75,3 @@ This is a Collaborative Learning Community (CLC) assignment. In this course, the
 
 By completing this milestone, the team will establish a strong foundation for the project, ensuring alignment on goals, technical approach, and team responsibilities.
 
-# Screencast for milestone
-[MilestoneVideo](https://youtu.be/Upgvzqt4OWo)

@@ -23,7 +23,8 @@
 
 ### Screencast URL:
 - The URL that can be used to access your screencast demonstration video for the respective assignment
-[MilestoneVideo](https://youtu.be/Upgvzqt4OWo)
+
+  [MilestoneVideo](https://youtu.be/Upgvzqt4OWo)
 
 ### Peer Review:
 - [x] We acknowledge that our team has reviewed this Report and we agree to the approach we are all taking
@@ -48,9 +49,9 @@ The following table should be completed after each Retrospective on things that 
 
 | What Did Not Go Well | Action Plan | Due Date  |
 | -------------------- | ----------- | --------- |
-| something            | something   | something |
-| something            | something   | something |
-| something            | something   | something |
+| Linking the user's registration info to login  | Create db & method to link reg. data to login  | Feb 23 |
+| Displaying all error messages | Give all login & register sections red error message   | Feb 23 |
+| Displaying books/products info     | create db & method for books   | Feb 23 |
 
 ## Design Documentation
 ### Install Instruction
@@ -355,7 +356,5 @@ All error responses follow this JSON format:
      
 ### Other Documentation:
 You should insert any additional drawings, storyboards, whiteboard pictures, project schedules, tasks lists, etc. that support your approach, design, and project. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A
-
-
 
 
