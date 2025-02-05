@@ -55,7 +55,21 @@ The following table should be completed after each Retrospective on things that 
 
 ## Design Documentation
 ### Install Instruction
-Step-by-step instructions for setting up your database, and configuring and deploying/installing your application. This section should also include detailed instructions for what configuration files are required by your application, what configuration settings need to be adjusted for various runtime (development or production) environments, and where the files need to be deployed to. This section should also contain detailed instructions for how to clone your application source code from GIT and deploy the application to an externally hosted site.
+- Software Requirements:
+  - IDE: Visual Studio Code(make sure it's installed for editing project report & running project)
+  - Database: MySql Server (make sure it's installed & running)
+  - Java Development Kit (JDK) Version 11 or higher (make sure it's properly installed)
+
+  - Steps:
+    - Have main class to run milestone
+    - Create Models for login, registration, & books
+    - Create html classes for login, registration, index, dashboard, & error(preferable)
+    - Create Controllers for login, registration, & main pages
+    - Create registration service class for future milestone
+    - Add logo
+    - Add CSS to site
+    
+    
 
 ### General Technical Approach:
 Add data here.
