@@ -33,7 +33,14 @@
 ## Planning Documentation
 
 ### Initial Planning:
-Summary
+For our milestone 2, our primary focus was to create the skeleton for the bookstore application/site and to make it function. The planning phase involved assigning tasks and creating the milestone's set up. The goal was to provide the dashboar, login, and registration functionality. Yet, there are still a few more parts of those pages that we have to adjust such as linking the registration information to the login's. 
+These tasks included:
+- Re-checking the diagrams
+- Creating a main running class
+- Creating models for the user registration, login, and books
+- Creating controllers for the user registration, login, and books
+- Creating html pages for the user registration, login, and books
+- Implementing CSS to enhance site
 
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
