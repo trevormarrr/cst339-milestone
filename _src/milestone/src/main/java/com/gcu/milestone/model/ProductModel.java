@@ -21,7 +21,8 @@ public class ProductModel {
     private Double price;
 
     // Constructor
-    public ProductModel() {}
+    public ProductModel() {
+    }
 
     public ProductModel(String name, String description, Double price) {
         this.name = name;

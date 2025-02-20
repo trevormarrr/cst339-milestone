@@ -1,9 +1,10 @@
 package com.gcu.milestone.service;
 
 import com.gcu.milestone.model.RegistrationModel;
+
 import org.springframework.stereotype.Service;
 
-@Service
+@Service // spring bean
 public class RegistrationService {
 
     public boolean registerUser(RegistrationModel user) {
