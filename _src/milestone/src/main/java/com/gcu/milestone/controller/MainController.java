@@ -30,4 +30,17 @@ public class MainController {
         return "dashboard";
     }
 
+    @GetMapping("inventory")
+    public String displayInventory(Model model) {
+        model.addAttribute("title", "My Inventory"); // title to dashpage
+
+        // Ensure loginModel is set
+        // checks if loginmodel data is available for dashboard
+        if (!model.containsAttribute("loginModel")) {
+            model.addAttribute("loginModel", new LoginModel()); // Use an appropriate default object
+        }
+
+        return "inventory";
+    }
+
 }

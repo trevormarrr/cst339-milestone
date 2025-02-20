@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<body>
+    <div layout:fragment="content">
+        <form th:action="@{/create-product/doCreate}" th:object="${productModel}" method="post">
+            <label>Product Name:</label>
+            <input type="text" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+    
+            <label>Description:</label>
+            <input type="text" th:field="*{description}" />
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br>
+    
+            <label>Price:</label>
+            <input type="number" th:field="*{price}" />
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br>
+    
+    
+            <button type="submit">Add Product</button>
+        </form>
+    
+        <p th:if="${message}" th:text="${message}"></p>
+    </div>
+    
+</body>
+    </html>
+    
