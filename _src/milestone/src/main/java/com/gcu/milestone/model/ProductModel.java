@@ -7,51 +7,75 @@ import jakarta.validation.constraints.DecimalMin;
 
 public class ProductModel {
 
-    @NotNull(message = "Product name is required")
-    @NotBlank(message = "Product name cannot be blank")
-    private String name;
+    @NotNull(message = "Title is required")
+    @NotBlank(message = "Title cannot be blank")
+    private String title;
 
-    @NotNull(message = "Product description is required")
-    @NotBlank(message = "Product description cannot be blank")
-    private String description;
+    @NotNull(message = "Genre is required")
+    @NotBlank(message = "Genre cannot be blank")
+    private String genre;
 
-    @NotNull(message = "Price is required")
-    @Min(value = 1, message = "Price must be greater than 0")
-    @DecimalMin(value = "0.01", message = "Price must be at least 0.01")
-    private Double price;
+    @NotNull(message = "Author is required")
+    @NotBlank(message = "Author cannot be blank")
+    private String author;
+
+    @NotNull(message = "Year is required")
+    @Min(value = 0, message = "Year must be a valid number")
+    private Integer year;
+
+    @NotNull(message = "Checked out status is required")
+    private Boolean checkedOut;
 
     // Constructor
     public ProductModel() {
     }
 
-    public ProductModel(String name, String description, Double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
+    public ProductModel(String title, String genre, String author, Integer year, Boolean checkedOut) {
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.year = year;
+        this.checkedOut = checkedOut;
     }
 
     // Getters and Setters
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Boolean getCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(Boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 }

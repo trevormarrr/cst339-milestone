@@ -13,15 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/create-product")
+@RequestMapping("/create-book")
 public class ProductController {
     private static final Logger logger = Logger.getLogger(ProductController.class.getName());
 
-
-    
-   @GetMapping("/")
+    @GetMapping("/")
     public String display(Model model) {
-        model.addAttribute("title", "Create Product");
+        model.addAttribute("title", "Create Book");
         model.addAttribute("productModel", new ProductModel());
         return "create-product";
     }
@@ -29,14 +27,13 @@ public class ProductController {
     @PostMapping("/doCreate")
     public String doCreate(@Valid ProductModel productModel, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("title", "Create Product"); // title to registration
-            return "create-product"; // if register fail, remain in page
+            model.addAttribute("title", "Create Book"); // title to creation
+            return "create-product"; // if creation fails, remain on page
         }
 
-        // Simulating successful registration
-        // display success page
-        model.addAttribute("message", "product creation successful!");
-        logger.info("User Created Product: Name=" + productModel.getName());
+        // Simulating successful book creation
+        model.addAttribute("message", "Book creation successful!");
+        logger.info("Book Created: Title=" + productModel.getTitle() + ", Author=" + productModel.getAuthor());
         return "create-product";
     }
 }

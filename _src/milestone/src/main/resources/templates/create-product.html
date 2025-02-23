@@ -1,29 +1,49 @@
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="layouts/defaultTemplate">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 
 <body>
-    <div layout:fragment="content">
-        <form th:action="@{/create-product/doCreate}" th:object="${productModel}" method="post">
-            <label>Product Name:</label>
-            <input type="text" th:field="*{name}" />
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
-    
-            <label>Description:</label>
-            <input type="text" th:field="*{description}" />
-            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br>
-    
-            <label>Price:</label>
-            <input type="number" th:field="*{price}" />
-            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br>
-    
-    
-            <button type="submit">Add Product</button>
+    <div layout:fragment="content" class="form-container">
+        <h2>Create a New Book</h2>
+        <form th:action="@{/create-book/doCreate}" th:object="${productModel}" method="post" class="styled-form">
+
+            <div class="input-group">
+                <label>Title:</label>
+                <input type="text" th:field="*{title}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Author:</label>
+                <input type="text" th:field="*{author}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Genre:</label>
+                <input type="text" th:field="*{genre}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Year:</label>
+                <input type="number" th:field="*{year}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Checked Out:</label>
+                <input type="checkbox" th:field="*{checkedOut}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('checkedOut')}" th:errors="*{checkedOut}"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Book</button>
         </form>
-    
-        <p th:if="${message}" th:text="${message}"></p>
+
+        <p th:if="${message}" class="success-message" th:text="${message}"></p>
     </div>
-    
 </body>
-    </html>
-    
+</html>

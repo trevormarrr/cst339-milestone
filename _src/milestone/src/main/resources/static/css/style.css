@@ -1,0 +1,210 @@
+/* General Form Styling */
+.form-container, .login-container, .register-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    width: 400px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Form Headings */
+h2 {
+    color: #764ba2;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus {
+    border-color: #764ba2;
+    box-shadow: 0px 0px 8px rgba(118, 75, 162, 0.3);
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(to right, #764ba2, #667eea);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #5a3b89, #5567c5);
+    transform: scale(1.02);
+}
+
+/* Error Messages */
+.error, .fieldError {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Success Messages */
+.success-message {
+    color: #28a745;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Group First & Last Name, Email & Phone */
+.input-group-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group-row .input-group {
+    flex: 1;
+}
+
+/* Login & Register Links */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 450px) {
+    .form-container, .login-container, .register-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* Home Page Styles */
+.home-container {
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.intro h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.links {
+    margin-top: 30px;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Featured Books Section */
+.featured-books {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.featured-books h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.book-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.book-item {
+    width: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.book-item:hover {
+    transform: translateY(-10px);
+}
+
+.book-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book-item h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.book-item p {
+    color: #777;
+    font-size: 1em;
+}
