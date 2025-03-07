@@ -65,6 +65,17 @@
     <artifactId>jakarta.validation-api</artifactId>
     <version>3.1.1</version>
 </dependency>
+        <!-- Add Spring JDBC and MySQL dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!-- Replace existing MySQL dependency with this one -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
