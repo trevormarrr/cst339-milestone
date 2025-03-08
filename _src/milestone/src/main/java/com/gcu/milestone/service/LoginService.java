@@ -1,19 +1,27 @@
 package com.gcu.milestone.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gcu.milestone.model.LoginModel;
+import com.gcu.milestone.repository.UserRepository;
 
-// Service for the login
-@Service // spring bean
+@Service
 public class LoginService {
-    public boolean loginUser(LoginModel user) {
 
-        if ("username".equals(user.getUsername()) && "passwprd".equals(user.getPassword())) {
-            System.out.println("User logged in: " + user);
+    @Autowired
+    private UserRepository userRepository; // Injecting UserRepository to interact with the database
+
+    public boolean loginUser(String username, String password) {
+        // Attempt to find the user by their username
+        var user = userRepository.findByUsername(username);
+
+        if (user != null && user.getPassword().equals(password)) {
+            // If user exists and passwords match
             return true;
+        } else {
+            // If no user found or passwords don't match
+            return false;
         }
-        return false;
-
     }
 }

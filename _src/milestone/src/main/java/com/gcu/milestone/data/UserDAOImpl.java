@@ -14,9 +14,9 @@ import com.gcu.milestone.model.RegistrationModel;
 
 @Repository
 public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
-    
+
     private JdbcTemplate jdbcTemplate;
-    
+
     @Autowired
     public UserDAOImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -59,13 +59,12 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         String sql = "INSERT INTO users (first_name, last_name, email, phone_number, username, password) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             int rows = jdbcTemplate.update(sql,
-                user.getFirstName(),
-                user.getLastName(),
-                user.getEmail(),
-                user.getPhoneNumber(),
-                user.getUsername(),
-                user.getPassword()
-            );
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getEmail(),
+                    user.getPhoneNumber(),
+                    user.getUsername(),
+                    user.getPassword());
             return rows > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,13 +77,12 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         String sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?, phone_number = ?, password = ? WHERE username = ?";
         try {
             int rows = jdbcTemplate.update(sql,
-                user.getFirstName(),
-                user.getLastName(), 
-                user.getEmail(),
-                user.getPhoneNumber(),
-                user.getPassword(),
-                user.getUsername()
-            );
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getEmail(),
+                    user.getPhoneNumber(),
+                    user.getPassword(),
+                    user.getUsername());
             return rows > 0;
         } catch (Exception e) {
             e.printStackTrace();

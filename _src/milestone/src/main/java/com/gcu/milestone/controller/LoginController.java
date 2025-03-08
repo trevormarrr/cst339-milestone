@@ -41,7 +41,9 @@ public class LoginController {
             return "login";
         }
 
-        boolean isLogged = loginService.loginUser(loginModel);
+        // Call the login service with username and password extracted from the
+        // loginModel
+        boolean isLogged = loginService.loginUser(loginModel.getUsername(), loginModel.getPassword());
 
         if (isLogged) {
             // order list
@@ -58,6 +60,12 @@ public class LoginController {
             // set dashboard data
             model.addAttribute("title", "My Dashboard");
             model.addAttribute("dashboard", orders);
+        } else {
+            // If login fails, you can add a message here or redirect back to login with
+            // error
+            model.addAttribute("error", "Invalid username or password.");
+            model.addAttribute("title", "Login Form");
+            return "login";
         }
 
         return "dashboard";

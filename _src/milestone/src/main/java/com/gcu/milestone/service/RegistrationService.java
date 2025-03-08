@@ -9,7 +9,7 @@ import com.gcu.milestone.model.RegistrationModel;
 
 @Service
 public class RegistrationService {
-    
+
     @Autowired
     private DataAccessInterface<RegistrationModel> userDAO;
 
