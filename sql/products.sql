@@ -24,47 +24,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `users` (
-  `id` bigint NOT NULL,
-  `first_name` varchar(32) NOT NULL,
-  `last_name` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `phone_number` varchar(15) NOT NULL,
-  `username` varchar(32) NOT NULL,
-  `password` varchar(60) NOT NULL,
+CREATE TABLE `products` (
+  `id` int NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `genre` varchar(50) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `year` int NOT NULL,
+  `checked_out` tinyint(1) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone_number`, `username`, `password`, `created_at`) VALUES
-(1, 'Admin', 'Admin', 'admin@email.com', '1234567890', 'admin', '$2a$10$YIxDjfAX1PUF.CcVFEzaQ.87PjG1DMdMg9uBSnGQZqefNzAuoYgc.', '2025-03-09 19:21:06');
+INSERT INTO `products` (`id`, `title`, `genre`, `author`, `year`, `checked_out`, `created_at`) VALUES
+(1, 'Test Book', 'Fiction', 'Test Author', 2025, 0, '2025-03-09 19:06:42');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `products`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `users`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `products`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

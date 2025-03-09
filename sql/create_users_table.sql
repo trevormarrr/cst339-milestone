@@ -9,7 +9,7 @@ CREATE TABLE users (
     email VARCHAR(32) NOT NULL,
     phone_number VARCHAR(15) NOT NULL,
     username VARCHAR(32) NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT unique_username UNIQUE (username),
     CONSTRAINT unique_email UNIQUE (email)

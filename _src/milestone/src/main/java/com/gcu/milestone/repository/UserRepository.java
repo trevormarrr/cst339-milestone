@@ -1,9 +1,8 @@
-package com.gcu.milestone.repository; // Adjust the package name to match your project structure
+package com.gcu.milestone.repository;
 
 import com.gcu.milestone.model.RegistrationModel;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CrudRepository<RegistrationModel, Integer> {
-    // Custom query to find a user by username
+public interface UserRepository extends JpaRepository<RegistrationModel, Long> {
     RegistrationModel findByUsername(String username);
 }

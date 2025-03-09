@@ -3,6 +3,7 @@ package com.gcu.milestone.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.gcu.milestone.data.DataAccessInterface;
 import com.gcu.milestone.model.RegistrationModel;
@@ -13,10 +14,15 @@ public class RegistrationService {
     @Autowired
     private DataAccessInterface<RegistrationModel> userDAO;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public boolean registerUser(RegistrationModel user) {
         if (userDAO.findByUsername(user.getUsername()) != null) {
             return false;
         }
+        // Hash password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userDAO.create(user);
     }
 
