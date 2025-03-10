@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/create-book")
+@RequestMapping("/create-book") // handles rout for creating new book
 public class ProductController {
     private static final Logger logger = Logger.getLogger(ProductController.class.getName());
 
     @Autowired
-    private ProductService productService;
+    private ProductService productService; // handles product operations
 
-    @GetMapping("/")
+    @GetMapping("/") // displays form for creating book
     public String display(Model model) {
         model.addAttribute("title", "Create Book");
         model.addAttribute("productModel", new ProductModel());
         return "create-product";
     }
 
-    @PostMapping("/doCreate")
+    @PostMapping("/doCreate") // handles form submission to create book
     public String doCreate(@Valid ProductModel productModel, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("title", "Create Book");
@@ -35,7 +35,7 @@ public class ProductController {
         }
 
         try {
-            boolean created = productService.createProduct(productModel);
+            boolean created = productService.createProduct(productModel);// create product
             if (created) {
                 model.addAttribute("message", "Book creation successful!");
                 logger.info("Book Created: Title=" + productModel.getTitle() + ", Author=" + productModel.getAuthor());

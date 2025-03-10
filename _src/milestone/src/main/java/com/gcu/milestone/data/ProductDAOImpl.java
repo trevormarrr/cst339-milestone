@@ -11,14 +11,17 @@ import com.gcu.milestone.model.ProductModel;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
-    
+
     private JdbcTemplate jdbcTemplate;
 
+    // constructor
+    // initiaalizes JdbcTemplate with data source
     @Autowired
     public ProductDAOImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    // retrieves all products from db
     @Override
     public List<ProductModel> findAll() {
         String sql = "SELECT * FROM products";
@@ -30,6 +33,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    // retrieves product by id from db
     @Override
     public ProductModel findById(int id) {
         String sql = "SELECT * FROM products WHERE id = ?";
@@ -40,16 +44,17 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    // creates new product in db
     @Override
     public boolean create(ProductModel product) {
         String sql = "INSERT INTO products (title, genre, author, year, checked_out) VALUES (?, ?, ?, ?, ?)";
         try {
             int rows = jdbcTemplate.update(sql,
-                product.getTitle(),
-                product.getGenre(),
-                product.getAuthor(),
-                product.getYear(),
-                product.getCheckedOut());
+                    product.getTitle(),
+                    product.getGenre(),
+                    product.getAuthor(),
+                    product.getYear(),
+                    product.getCheckedOut());
             return rows > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,16 +62,17 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    // updates existing product in db
     @Override
     public boolean update(ProductModel product) {
         String sql = "UPDATE products SET genre = ?, author = ?, year = ?, checked_out = ? WHERE title = ?";
         try {
             int rows = jdbcTemplate.update(sql,
-                product.getGenre(),
-                product.getAuthor(),
-                product.getYear(),
-                product.getCheckedOut(),
-                product.getTitle());
+                    product.getGenre(),
+                    product.getAuthor(),
+                    product.getYear(),
+                    product.getCheckedOut(),
+                    product.getTitle());
             return rows > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,6 +80,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    // deletes product from db by title
     @Override
     public boolean delete(ProductModel product) {
         String sql = "DELETE FROM products WHERE title = ?";
@@ -86,6 +93,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    // retrieves product by title
     @Override
     public ProductModel findByTitle(String title) {
         String sql = "SELECT * FROM products WHERE title = ?";

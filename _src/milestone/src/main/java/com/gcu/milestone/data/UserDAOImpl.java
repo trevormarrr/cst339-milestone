@@ -17,6 +17,7 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
 
     private JdbcTemplate jdbcTemplate;
 
+    // constructor
     @Autowired
     public UserDAOImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -26,10 +27,10 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
     public List<RegistrationModel> findAll() {
         String sql = "SELECT * FROM users";
         try {
-            return jdbcTemplate.query(sql, new UserMapper());
+            return jdbcTemplate.query(sql, new UserMapper()); // retrievs all users
         } catch (Exception e) {
             e.printStackTrace();
-            return new ArrayList<RegistrationModel>();
+            return new ArrayList<RegistrationModel>(); // returns empty list
         }
     }
 
@@ -37,10 +38,10 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
     public RegistrationModel findById(int id) {
         String sql = "SELECT * FROM users WHERE id = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, new UserMapper(), id);
+            return jdbcTemplate.queryForObject(sql, new UserMapper(), id); // retreievs user by ID
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return null; // return null if not found
         }
     }
 
@@ -48,9 +49,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
     public RegistrationModel findByUsername(String username) {
         String sql = "SELECT * FROM users WHERE username = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+            return jdbcTemplate.queryForObject(sql, new UserMapper(), username); // retrieve user by username
         } catch (Exception e) {
-            return null;
+            return null; // return null if not found
         }
     }
 
@@ -65,10 +66,10 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
                     user.getPhoneNumber(),
                     user.getUsername(),
                     user.getPassword());
-            return rows > 0;
+            return rows > 0; // return true if record is inserted
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return false; // return false
         }
     }
 
@@ -83,10 +84,10 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
                     user.getPhoneNumber(),
                     user.getPassword(),
                     user.getUsername());
-            return rows > 0;
+            return rows > 0; // return true if record updated
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return false; // return false
         }
     }
 
@@ -94,15 +95,16 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
     public boolean delete(RegistrationModel user) {
         String sql = "DELETE FROM users WHERE username = ?";
         try {
-            int rows = jdbcTemplate.update(sql, user.getUsername());
-            return rows > 0;
+            int rows = jdbcTemplate.update(sql, user.getUsername()); // Delete user by username
+            return rows > 0; // return true if record deleted
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return false; // return false
         }
     }
 
     // Additional utility method
+    // checks if usernme exists in db
     public boolean exists(String username) {
         String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
         int count = jdbcTemplate.queryForObject(sql, Integer.class, username);
