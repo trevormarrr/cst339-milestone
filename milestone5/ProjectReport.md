@@ -16,6 +16,7 @@
 ### Weekly Team Status Summary (UseCase)
 ![UserCase](usercase.png)
 
+***Update this Section once milestone is done!**
 - *This week we 
 
 ### GIT URL
