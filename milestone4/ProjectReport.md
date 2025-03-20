@@ -57,6 +57,7 @@ The following table should be completed after each Retrospective on things that 
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
+
 | What Did Not Go Well | Action Plan | Due Date  |
 | -------------------- | ----------- | --------- |
 | Linking the user's registration info to login  | Create db & method to link reg. data to login  | Feb 23 |
