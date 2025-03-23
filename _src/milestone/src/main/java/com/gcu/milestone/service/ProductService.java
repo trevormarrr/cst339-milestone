@@ -49,4 +49,9 @@ public class ProductService {
     public boolean deleteProduct(ProductModel product) {
         return productDAO.delete(product);
     }
+
+    // Add this new method
+    public ProductModel findByTitle(String title) {
+        return productDAO.findByTitle(title);
+    }
 }

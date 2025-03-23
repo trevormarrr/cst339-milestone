@@ -7,27 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/create-book") // handles rout for creating new book
 public class ProductController {
     private static final Logger logger = Logger.getLogger(ProductController.class.getName());
 
     @Autowired
-    private ProductService productService; // handles product operations
+    private ProductService productService;
 
-    @GetMapping("/") // displays form for creating book
+    // Display all products
+    @GetMapping("/products")
+    public String displayProducts(Model model) {
+        model.addAttribute("products", productService.getAllProducts());
+        return "products";
+    }
+
+    // Display create form
+    @GetMapping("/create-book/")
     public String display(Model model) {
         model.addAttribute("title", "Create Book");
         model.addAttribute("productModel", new ProductModel());
         return "create-product";
     }
 
-    @PostMapping("/doCreate") // handles form submission to create book
+    // Handle create submission
+    @PostMapping("/create-book/doCreate")
     public String doCreate(@Valid ProductModel productModel, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("title", "Create Book");
@@ -35,18 +41,50 @@ public class ProductController {
         }
 
         try {
-            boolean created = productService.createProduct(productModel);// create product
+            boolean created = productService.createProduct(productModel);
             if (created) {
-                model.addAttribute("message", "Book creation successful!");
-                logger.info("Book Created: Title=" + productModel.getTitle() + ", Author=" + productModel.getAuthor());
+                return "redirect:/products?success=created";
             } else {
                 model.addAttribute("message", "Book creation failed. Title may already exist.");
             }
         } catch (Exception e) {
-            model.addAttribute("message", "An error occurred while creating the book.");
             logger.severe("Error creating book: " + e.getMessage());
+            model.addAttribute("message", "An error occurred while creating the book.");
         }
-
         return "create-product";
+    }
+
+    // Display edit form
+    @GetMapping("/products/edit/{title}")
+    public String displayEdit(@PathVariable String title, Model model) {
+        ProductModel product = productService.findByTitle(title);
+        if (product == null) {
+            return "redirect:/products?error=notfound";
+        }
+        model.addAttribute("product", product);
+        return "edit-product";
+    }
+
+    // Handle update submission
+    @PostMapping("/products/update")
+    public String updateProduct(@Valid ProductModel product, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "edit-product";
+        }
+        
+        if (productService.updateProduct(product)) {
+            return "redirect:/products?success=updated";
+        }
+        return "redirect:/products?error=updatefailed";
+    }
+
+    // Handle delete
+    @PostMapping("/products/delete")
+    public String deleteProduct(@RequestParam String title) {
+        ProductModel product = productService.findByTitle(title);
+        if (product != null && productService.deleteProduct(product)) {
+            return "redirect:/products?success=deleted";
+        }
+        return "redirect:/products?error=deletefailed";
     }
 }

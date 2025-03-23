@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div layout:fragment="content" class="form-container">
+        <h2>Edit Book</h2>
+        <form th:action="@{/products/update}" th:object="${product}" method="post" class="styled-form">
+            <input type="hidden" th:field="*{title}" />
+            
+            <div class="input-group">
+                <label>Author:</label>
+                <input type="text" th:field="*{author}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Genre:</label>
+                <input type="text" th:field="*{genre}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Year:</label>
+                <input type="number" th:field="*{year}" class="input-field" />
+                <span class="error-message" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span>
+            </div>
+
+            <div class="input-group">
+                <label>Checked Out:</label>
+                <input type="checkbox" th:field="*{checkedOut}" />
+            </div>
+
+            <button type="submit" class="submit-btn">Update Book</button>
+            <a href="/products" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

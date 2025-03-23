@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="products-container">
+            <h2>Book Inventory</h2>
+            
+            <!-- Success/Error Messages -->
+            <div th:if="${message}" class="alert" th:classappend="${messageType}" th:text="${message}"></div>
+            
+            <!-- Add Book Button -->
+            <div class="action-bar">
+                <a href="/create-book/" class="btn btn-primary">Add New Book</a>
+            </div>
+
+            <!-- Products Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.title}"></td>
+                        <td th:text="${product.author}"></td>
+                        <td th:text="${product.genre}"></td>
+                        <td th:text="${product.year}"></td>
+                        <td th:text="${product.checkedOut ? 'Checked Out' : 'Available'}"></td>
+                        <td>
+                            <a th:href="@{/products/edit/{title}(title=${product.title})}" class="btn btn-sm btn-primary">Edit</a>
+                            <form th:action="@{/products/delete}" method="post" style="display: inline;">
+                                <input type="hidden" name="title" th:value="${product.title}" />
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
