@@ -16,15 +16,14 @@
 ### Weekly Team Status Summary (UseCase)
 ![UserCase](usercase.png)
 
-***Update this Section once milestone is done!**
-- *This week we 
+- This week we worked on test cases, added new pages using Spring MVC to support the new functionality, added new Business Services using Spring Beans and IoC to support the new functionality, and added new Data Services using Spring Beans, IoC, and Spring JDBC or Spring Data JDBC to support the new functionality with the data service designed using the data access object (DAO) or the repository design pattern.
 
 ### GIT URL
 - The git URL that can be used to clone your code and design artifacts
 
 ### Screencast URL:
 - The URL that can be used to access your screencast demonstration video for the respective assignment
-*screencast goes here!*
+Screencast[Screencast](https://youtu.be/vxB9j4GTt5c)
 
 ### Peer Review:
 - [x]  We acknowledge that our team has reviewed this Report and we agree to the approach we are all taking
@@ -44,23 +43,19 @@ These tasks included:
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
 
-***Update this Section once milestone is done!**
 | What Went Well |
 | -------------- |
-| Something      |
-| Something      |
-| Something      |
-| Something      |
+| We did the test classes|
+| Added new pages using Spring|
+| Added new Business Services using Spring Beans & IoC|
+| Added new Data Services using Spring Beans, IoC, & using Spring JDBC|
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
 
-***Update this Section once milestone is done!**
 | What Did Not Go Well | Action Plan | Due Date  |
 | -------------------- | ----------- | --------- |
-| Something  | Something  | March 23 |
-| Something  | Something  | March 23 |
-| Something  | Something  | March 23 |
+| Db doesn't update new user/product  | re-check sql & application properties  | March 23 |
 
 
 ## Design Documentation

@@ -71,7 +71,7 @@ public class ProductController {
         if (bindingResult.hasErrors()) {
             return "edit-product";
         }
-        
+
         if (productService.updateProduct(product)) {
             return "redirect:/products?success=updated";
         }

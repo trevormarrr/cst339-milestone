@@ -40,7 +40,7 @@ public class RegistrationController {
         try {
             // Attempt to register the user
             boolean isRegistered = registrationService.registerUser(registrationModel);
-            
+
             if (isRegistered) {
                 logger.info("User registered successfully: " + registrationModel.getUsername());
                 model.addAttribute("message", "Registration successful! You can now log in.");
