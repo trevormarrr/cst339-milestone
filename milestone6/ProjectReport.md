@@ -14,8 +14,7 @@
 2. Trevor Marr
 
 ### Weekly Team Status Summary (UseCase)
-![UserCase](usercase.png)
-
+![Usercase](usercase.png)
 - **This week we worked on...
 
 ### GIT URL
