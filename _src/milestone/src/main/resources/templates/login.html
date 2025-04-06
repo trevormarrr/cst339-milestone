@@ -1,32 +1,30 @@
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="layouts/defaultTemplate">
-	<head>
-		<link rel="stylesheet" th:href="@{/css/style.css}" />
-	</head>
-	<body>
-		<div layout:fragment="content" class="login-container">
-			<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post" class="login-form">
-				<h2>Login</h2>
-				<div class="input-group">
-					<label>Username:</label>
-					<input type="text" th:field="*{username}" class="input-field">
-					<h5 class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></h5>
-				</div>
-				<div class="input-group">
-					<label>Password:</label>
-					<input type="password" th:field="*{password}" class="input-field">
-					<h5 class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></h5>
-				</div>
-				<button type="submit" class="submit-btn">Login</button>
-	
-				<!-- <div class="error-list" th:if="${#fields.hasErrors('*')}">
-					<p>List of Errors:</p>
-					<div th:each="err : ${#fields.errors('*')}">
-						<span class="fieldError" th:text="${err}"></span>
-					</div>
-				</div> -->
-			</form>
-		</div>
-	</body>
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layouts/defaultTemplate">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+    </head>
+    <body>
+        <div layout:fragment="content" class="login-container">
+            <!-- Form configured to work with Spring Security -->
+            <form th:action="@{/login/doLogin}" method="post" class="login-form">
+                <h2>Login</h2>
+                <!-- Display error message if login fails -->
+                <div th:if="${param.error}" class="alert alert-error">
+                    Invalid username or password.
+                </div>
+                <!-- Username field - name must be "username" for Spring Security -->
+                <div class="input-group">
+                    <label>Username:</label>
+                    <input type="text" name="username" class="input-field">
+                </div>
+                <!-- Password field - name must be "password" for Spring Security -->
+                <div class="input-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" class="input-field">
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </body>
 </html>
