@@ -15,7 +15,7 @@
 
 ### Weekly Team Status Summary (UseCase)
 ![Usercase](usercase.png)
-- **This week we worked on...
+- This week we worked on the site's security through spring security, updated the login system to so it can use Spring Security for authentication, and protected certain pages so that they can only be accessed if the user is logged in. For example, is if the user attempts to access any other page in the navbar, it wouldn't allow them. The user would remain in the login page until they've logged in or registered. Once they've successfully logged in, then they will be redirected to the dashboard and allowed to check out any other pages displayed in the navbar. 
 
 ### GIT URL
 - The git URL that can be used to clone your code and design artifacts
@@ -31,21 +31,27 @@
 
 ## Planning Documentation
 ### Initial Planning:
-- For our Milestone 6, our primarily focus was...
-** update this part!
+- For our Milestone 6, our primarily focus was to secure specific pages so that only authenticated users could access them and integrate Spring Security into the application. The planning section included reviewing the project requirements, knowing the security needs, and deciding on the neccessary updates. The intention was to ensure that the pages such as login and registration are available, but users can only access protected pages once they've been able to successfuly login. These tasks included:
+
+- Updating the login system to use Spring Security for authentication
+- Secure specific pages so only logged in users can access them
+- Implement password encryption using BCrypt
+- Configure spring security to handle user redirection
 
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
 
 | What Went Well |
 | -------------- |
-| **update this section!|
+|Successfully integrated Spring Security for user authentication|
+|Protected specific pages, ensuring logged in users can access them|
+|Configured BCrypt for password encryption|
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
 | What Did Not Go Well | Action Plan | Due Date  |
 | -------------------- | ----------- | --------- |
-| **update this section!  | **update this section!  | April 6 |
+| N/A | N/A  | April 6 |
 
 
 ## Design Documentation
