@@ -22,8 +22,8 @@
 
 ### Screencast URL:
 - The URL that can be used to access your screencast demonstration video for the respective assignment
-**Screencast goes here!
-
+- [Part 1](https://www.loom.com/share/9470985ba702469a8ff06220b9175934)
+- [Part 2](https://youtu.be/vgq0SbRaUFw)
 
 ### Peer Review:
 - [x]  We acknowledge that our team has reviewed this Report and we agree to the approach we are all taking
