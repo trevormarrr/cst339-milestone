@@ -15,7 +15,7 @@
 
 ### Weekly Team Status Summary (UseCase)
 ![Usercase](usercase.png)
-- *
+- This week, we used Spring Security to design and secure the REST API.  We developed APIs that enable users to retrieve a particular product by ID or all items.  Because these endpoints are protected, accessing them requires that the user be logged in using HTTP Basic Authentication.  An unlawful response will be displayed, for instance, if someone attempts to access the /products or /products/{id} endpoint without first logging in.  A legitimate user will be able to view the product info as anticipated after logging in.  To make sure everything functions properly, we additionally tested the API using Postman and other tools.
 
 
 ### GIT URL
