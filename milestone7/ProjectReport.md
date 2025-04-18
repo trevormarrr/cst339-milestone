@@ -45,10 +45,11 @@
 The following table should be completed after each Retrospective on things that went well (keep doing)
 
 | What Went Well |
-| -------------- |
-|Our REST APIs were successfully configured and secured with Spring Security and simple HTTP authentication.|
-|We used our planning documents to keep on task and communicated clearly as a team.|
-|Code reviews guaranteed consistent documentation and comments and assisted us in identifying minor bugs early.|
+| --------------- |
+| Our REST APIs were successfully configured and secured with Spring Security and simple HTTP authentication. |
+| We used our planning documents to keep on task and communicated clearly as a team. |
+| Code reviews guaranteed consistent documentation and comments and assisted us in identifying minor bugs early. |
+
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
