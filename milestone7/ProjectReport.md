@@ -31,7 +31,15 @@
 
 ## Planning Documentation
 ### Initial Planning:
-- *For Milestone 7, ...
+- For Milestone 7, We concentrated on developing and safeguarding the REST API for our seventh milestone. Implementing endpoints to return all items and a particular product by ID was our aim. We used Spring Security with simple HTTP authentication to secure these APIs.
+* Reviewing requirements, creating the Swagger APIs, and tying authentication to the database were all part of the planning process. Important duties included:
+* Establishing endpoints for /products and /products/{id}
+* Using database authentication and Spring Security to secure APIs
+* Handling invalid or illegal requests
+* Adding API information to the Design Report
+
+
+
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
 
