@@ -24,7 +24,9 @@
 ### Screencast URL:
 - The URL that can be used to access your screencast demonstration video for the respective assignment
 <br>
-**screencast*
+[**screencast*](https://www.loom.com/share/8eec3c5be1174e519df16bfc524c5bfc?sid=8f6355d5-61db-408e-ab3d-8b2fbc0aa949)
+
+**REST API DOCUMENTATION AT THE BOTTOM OF PROJECT REPORT**
 
 ### Peer Review:
 - [x]  We acknowledge that our team has reviewed this Report and we agree to the approach we are all taking
@@ -375,4 +377,104 @@ All error responses follow this JSON format:
      
 ### Other Documentation:
 You should insert any additional drawings, storyboards, whiteboard pictures, project schedules, tasks lists, etc. that support your approach, design, and project. If you have no supporting documentation, please explain the rationale for why you are able to leave this section as N/A
+
+# REST API Documentation
+
+## API Overview
+The following REST APIs have been implemented and secured with Spring Security using Basic HTTP Authentication:
+
+### Product APIs
+
+#### GET /api/products
+Retrieves all products from the catalog.
+
+**Authentication Required**: Basic Auth
+
+**Response**
+```json
+[
+  {
+    "id": 1,
+    "title": "Book 1",
+    "genre": "Fiction",
+    "author": "Author 1",
+    "price": 29.99,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "title": "Book 2",
+    "genre": "Non-Fiction", 
+    "author": "Author 2",
+    "price": 19.99,
+    "inStock": true
+  }
+]
+```
+
+**Error Response** (401 Unauthorized)
+```json
+{
+  "error": "Unauthorized",
+  "message": "Authentication required to access this resource"
+}
+```
+
+#### GET /api/products/{id}
+Retrieves a specific product by ID.
+
+**Authentication Required**: Basic Auth
+
+**Parameters**
+- Path Parameter: id (integer) - Product ID
+
+**Response**
+```json
+{
+  "id": 1,
+  "title": "Book 1",
+  "genre": "Fiction",
+  "author": "Author 1", 
+  "price": 29.99,
+  "inStock": true
+}
+```
+
+**Error Responses**
+
+401 Unauthorized:
+```json
+{
+  "error": "Unauthorized",
+  "message": "Authentication required to access this resource"
+}
+```
+
+404 Not Found:
+```json
+{
+  "error": "Not Found",
+  "message": "Product with id {id} not found"
+}
+```
+
+## Security Implementation
+
+### Authentication
+- Basic HTTP Authentication is implemented using Spring Security
+- Credentials are validated against the user database
+- All API endpoints require authentication
+
+### Access Control  
+- APIs are secured at the method level using Spring Security annotations
+- User roles and permissions are enforced through Spring Security configuration
+- Invalid credentials result in 401 Unauthorized responses
+
+### API Testing
+The APIs have been tested using Postman with the following scenarios:
+- Accessing endpoints without authentication
+- Accessing endpoints with invalid credentials
+- Accessing endpoints with valid credentials
+- Retrieving single and multiple products
+- Error handling for invalid product IDs
 
