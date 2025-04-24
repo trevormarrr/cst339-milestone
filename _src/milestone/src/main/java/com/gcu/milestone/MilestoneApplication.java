@@ -7,7 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 
 @ComponentScan("com.gcu.milestone")
-
+/**
+ * starter for application
+ */
 public class MilestoneApplication {
 
 	public static void main(String[] args) {

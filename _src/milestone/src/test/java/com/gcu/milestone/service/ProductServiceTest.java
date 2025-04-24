@@ -14,6 +14,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * ProductService Unit Test
+ */
 public class ProductServiceTest {
 
     @Mock
@@ -22,11 +25,17 @@ public class ProductServiceTest {
     @InjectMocks
     private ProductService productService;
 
+    /**
+     * Starts Mockito before each test case
+     */
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
+    /**
+     * Tests CreateProduct when product already exists
+     */
     @Test
     void testCreateProduct_ProductExists_ReturnFalse() {
         ProductModel existingProduct = new ProductModel("Test Product", "Genre", "Author", 2021, true);
@@ -41,6 +50,9 @@ public class ProductServiceTest {
         assertFalse(result); // Should return false because the product already exists
     }
 
+    /**
+     * tests CreateProduct when product doesn't already exist
+     */
     @Test
     void testCreateProduct_ProductDoesNotExist_ReturnTrue() {
         ProductModel newProduct = new ProductModel("New Product", "New Genre", "New Author", 2023, false);
@@ -56,6 +68,10 @@ public class ProductServiceTest {
         assertTrue(result); // Should return true because the product doesn't exist
     }
 
+    /**
+     * tests GetAllProducts
+     * return list with all products
+     */
     @Test
     void testGetAllProducts() {
         List<ProductModel> mockProducts = Arrays.asList(
@@ -74,6 +90,9 @@ public class ProductServiceTest {
         assertEquals("Product 1", result.get(0).getTitle());
     }
 
+    /**
+     * Tests retrieving a product by id when it exists
+     */
     @Test
     void testGetProductById_Found_ReturnsProduct() {
         ProductModel mockProduct = new ProductModel("Product 1", "Genre 1", "Author 1", 2021, true);
@@ -89,6 +108,9 @@ public class ProductServiceTest {
         assertEquals("Product 1", result.getTitle());
     }
 
+    /**
+     * tests GetProductById when it doesn't exist
+     */
     @Test
     void testGetProductById_NotFound_ReturnsNull() {
         // Mock productDAO to return null when searching by id
@@ -101,6 +123,9 @@ public class ProductServiceTest {
         assertNull(result); // Should return null as the product is not found
     }
 
+    /**
+     * Tests UpdateProduct successful
+     */
     @Test
     void testUpdateProduct_Success() {
         ProductModel updatedProduct = new ProductModel("Updated Product", "Updated Genre", "Updated Author", 2023,
@@ -116,6 +141,9 @@ public class ProductServiceTest {
         assertTrue(result); // Should return true because the update was successful
     }
 
+    /**
+     * Tests DeleteProduct successful
+     */
     @Test
     void testDeleteProduct_Success() {
         ProductModel productToDelete = new ProductModel("Product To Delete", "Genre", "Author", 2021, true);
@@ -130,6 +158,9 @@ public class ProductServiceTest {
         assertTrue(result); // Should return true because the deletion was successful
     }
 
+    /**
+     * Tests DeleteProduct failure
+     */
     @Test
     void testDeleteProduct_Failure() {
         ProductModel productToDelete = new ProductModel("Nonexistent Product", "Genre", "Author", 2021, true);

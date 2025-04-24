@@ -14,6 +14,9 @@ import com.gcu.milestone.service.RegistrationService;
 
 import jakarta.validation.Valid;
 
+/**
+ * user register
+ */
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
@@ -22,6 +25,12 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService; // autowire the service
 
+    /**
+     * Displays registration form
+     * 
+     * @param model passes data to view
+     * @return register view page
+     */
     @GetMapping("/")
     public String display(Model model) {
         model.addAttribute("title", "User Registration");
@@ -29,6 +38,14 @@ public class RegistrationController {
         return "register";
     }
 
+    /**
+     * Successful or unsuccessful registration
+     * 
+     * @param registrationModel user input from form
+     * @param bindingResult     validation result
+     * @param model             passes data to view
+     * @return register result page or redirect
+     */
     @PostMapping("/doRegister")
     public String doRegister(@Valid RegistrationModel registrationModel, BindingResult bindingResult, Model model) {
         // Check for validation errors
@@ -58,6 +75,12 @@ public class RegistrationController {
         return "register";
     }
 
+    /**
+     * Checks database connection by findinf test user
+     * 
+     * @param model passes test result
+     * @return register view test message
+     */
     @GetMapping("/test")
     public String testDatabase(Model model) {
         try {

@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SecurityTestController {
 
+    /**
+     * Display user authenticated username & role
+     * 
+     * @return granted authorities
+     */
     @GetMapping("/test/auth")
     public String testAuth() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return "Currently logged in user: " + auth.getName() + 
-               "\nRoles: " + auth.getAuthorities();
+        return "Currently logged in user: " + auth.getName() +
+                "\nRoles: " + auth.getAuthorities();
     }
 }

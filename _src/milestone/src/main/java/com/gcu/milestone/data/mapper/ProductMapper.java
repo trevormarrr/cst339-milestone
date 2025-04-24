@@ -5,6 +5,9 @@ import com.gcu.milestone.model.ProductModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Maps each row of ResultSet to ProductModel object
+ */
 public class ProductMapper implements RowMapper<ProductModel> {
     @Override
     public ProductModel mapRow(ResultSet rs, int rowNum) throws SQLException {

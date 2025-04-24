@@ -12,14 +12,18 @@ import com.gcu.milestone.model.RegistrationModel;
 
 import java.util.Collections;
 
-// Custom implementation of Spring Security's UserDetailsService
+/**
+ * Custom implementation of Spring Security's UserDetailsService
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private DataAccessInterface<RegistrationModel> userDAO;  // Inject our data access object
+    private DataAccessInterface<RegistrationModel> userDAO; // Inject our data access object
 
-    // Required method to load user details by username
+    /**
+     * Required method to load user details by username
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Find user in database
@@ -30,10 +34,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         // Convert our user model to Spring Security's UserDetails
         return new org.springframework.security.core.userdetails.User(
-            user.getUsername(),
-            user.getPassword(),
-            // Assign ROLE_USER to all authenticated users
-            Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
-        );
+                user.getUsername(),
+                user.getPassword(),
+                // Assign ROLE_USER to all authenticated users
+                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
     }
 }

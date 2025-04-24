@@ -7,16 +7,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.milestone.model.LoginModel;
 
+/**
+ * Handles routing for home, dashboard, & inventory pages
+ */
 @Controller
 @RequestMapping("/")
 public class MainController {
-
+    /**
+     * home page
+     * 
+     * @param model passes data to view
+     * @return index/home page view
+     */
     @GetMapping("/")
     public String display(Model model) {
         model.addAttribute("title", "Home Page");
         return "index";
     }
 
+    /**
+     * dashboard page
+     * 
+     * @param model passes data to view
+     * @return dashboard page view
+     */
     @GetMapping("dashboard")
     public String displayDashboard(Model model) {
         model.addAttribute("title", "My Dashboard"); // title to dashpage
@@ -30,6 +44,12 @@ public class MainController {
         return "dashboard";
     }
 
+    /**
+     * inventory page
+     * 
+     * @param model passes data to view
+     * @return inventory page view
+     */
     @GetMapping("inventory")
     public String displayInventory(Model model) {
         model.addAttribute("title", "My Inventory"); // title to dashpage

@@ -13,14 +13,22 @@ import com.gcu.milestone.model.ProductModel;
 
 import java.util.logging.Level;
 
+/**
+ * DAO for product model
+ * CRUD operations for products in db
+ */
 @Repository
 public class ProductDAOImpl implements ProductDAO {
 
     private static final Logger logger = Logger.getLogger(ProductDAOImpl.class.getName());
     private final JdbcTemplate jdbcTemplate;
 
-    // constructor
-    // initializes JdbcTemplate with data source
+    /**
+     * constructor
+     * initializes JdbcTemplate with data source
+     * 
+     * @param dataSource
+     */
     @Autowired
     public ProductDAOImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);

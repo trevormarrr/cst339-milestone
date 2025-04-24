@@ -9,14 +9,16 @@ import com.gcu.milestone.model.ProductModel;
 @Service
 public class ProductService {
 
-    // @Autowired
-    // Spring bean: ProductService managed by Spring IoC
-    // IoC: injects ProductDAO provided by spring
+    /**
+     * Spring bean: ProductService managed by Spring IoC
+     * IoC: injects ProductDAO provided by spring
+     */
     private final ProductDAO productDAO;
 
-    // Constructor Injection
-    // Ensures ProductDAO is provided by Spring
-    // Ashley's Section
+    /*
+     * Constructor Injection
+     * Ensures ProductDAO is provided by Spring
+     */
     @Autowired
     public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;

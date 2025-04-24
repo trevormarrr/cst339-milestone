@@ -5,6 +5,9 @@ import com.gcu.milestone.model.RegistrationModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Maps each row of ResultSet to RegistrationModel object
+ */
 public class UserMapper implements RowMapper<RegistrationModel> {
     @Override
     public RegistrationModel mapRow(ResultSet rs, int rowNum) throws SQLException {

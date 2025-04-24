@@ -11,20 +11,33 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 @Controller
+/**
+ * CRUD operations for products
+ */
 public class ProductController {
     private static final Logger logger = Logger.getLogger(ProductController.class.getName());
 
     @Autowired
     private ProductService productService;
 
-    // Display all products
+    /**
+     * Display all products
+     * 
+     * @param model passes data to view
+     * @return products page view
+     */
     @GetMapping("/products")
     public String displayProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
     }
 
-    // Display create form
+    /**
+     * Display create form
+     * 
+     * @param model passes data to view
+     * @return create-product view
+     */
     @GetMapping("/create-book/")
     public String display(Model model) {
         model.addAttribute("title", "Create Book");
@@ -32,7 +45,12 @@ public class ProductController {
         return "create-product";
     }
 
-    // Handle create submission
+    /**
+     * Handle create submission
+     * 
+     * @param model passes data to view
+     * @return create-product view
+     */
     @PostMapping("/create-book/doCreate")
     public String doCreate(@Valid ProductModel productModel, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -54,7 +72,13 @@ public class ProductController {
         return "create-product";
     }
 
-    // Display edit form
+    /**
+     * Display edit form
+     * 
+     * @param title title of product to edit
+     * @param model passes data to view
+     * @return edit-product view or redirect if not found
+     */
     @GetMapping("/products/edit/{title}")
     public String displayEdit(@PathVariable String title, Model model) {
         ProductModel product = productService.findByTitle(title);
@@ -65,7 +89,13 @@ public class ProductController {
         return "edit-product";
     }
 
-    // Handle update submission
+    /**
+     * Handle update submission
+     * 
+     * @param product       updated product data
+     * @param bindingResult result of validation
+     * @return reidrect to list
+     */
     @PostMapping("/products/update")
     public String updateProduct(@Valid ProductModel product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -78,7 +108,12 @@ public class ProductController {
         return "redirect:/products?error=updatefailed";
     }
 
-    // Handle delete
+    /**
+     * Handles delete
+     * 
+     * @param title title of product to delete
+     * @return redirect to products list
+     */
     @PostMapping("/products/delete")
     public String deleteProduct(@RequestParam String title) {
         ProductModel product = productService.findByTitle(title);

@@ -21,82 +21,105 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.gcu.milestone.model.ProductModel;
 import com.gcu.milestone.service.ProductService;
 
+/**
+ * ProductController Unit Test
+ */
 @ExtendWith(SpringExtension.class)
 public class ProductControllerTest {
 
-    private MockMvc mockMvc;
+        private MockMvc mockMvc;
 
-    @Mock
-    private ProductService productService;
+        @Mock
+        private ProductService productService;
 
-    @InjectMocks
-    private ProductController productController;
+        @InjectMocks
+        private ProductController productController;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
-    }
+        /**
+         * setup mockMvc environment
+         */
+        @BeforeEach
+        void setUp() {
+                MockitoAnnotations.openMocks(this);
+                mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
+        }
 
-    @Test
-    void testGetAllProducts() throws Exception {
-        List<ProductModel> mockProducts = Arrays.asList(
-                new ProductModel("Book 1", "fantasy", "Author 1", 2005, true),
-                new ProductModel("Book 1", "fantasy", "Author 1", 2005, true));
+        /**
+         * Test gets all products
+         */
+        @Test
+        void testGetAllProducts() throws Exception {
+                List<ProductModel> mockProducts = Arrays.asList(
+                                new ProductModel("Book 1", "fantasy", "Author 1", 2005, true),
+                                new ProductModel("Book 1", "fantasy", "Author 1", 2005, true));
 
-        when(productService.getAllProducts()).thenReturn(mockProducts);
+                when(productService.getAllProducts()).thenReturn(mockProducts);
 
-        mockMvc.perform(get("/products"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.size()", is(2)))
-                .andExpect(jsonPath("$[0].title", is("Product 1")));
-    }
+                mockMvc.perform(get("/products"))
+                                .andExpect(status().isOk())
+                                .andExpect(jsonPath("$.size()", is(2)))
+                                .andExpect(jsonPath("$[0].title", is("Product 1")));
+        }
 
-    @Test
-    void testGetProductById() throws Exception {
-        ProductModel mockProduct = new ProductModel("Book 3", "fantasy", "Author 3", 2015, true);
+        /**
+         * Test gets all products by id
+         * 
+         * @throws Exception
+         */
+        @Test
+        void testGetProductById() throws Exception {
+                ProductModel mockProduct = new ProductModel("Book 3", "fantasy", "Author 3", 2015, true);
 
-        when(productService.getProductById(1)).thenReturn(mockProduct);
+                when(productService.getProductById(1)).thenReturn(mockProduct);
 
-        mockMvc.perform(get("/products/1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title", is("Test Product")));
-    }
+                mockMvc.perform(get("/products/1"))
+                                .andExpect(status().isOk())
+                                .andExpect(jsonPath("$.title", is("Test Product")));
+        }
 
-    @Test
-    void testCreateProduct() throws Exception {
-        ProductModel newProduct = new ProductModel("Book 2", "mystery", "Author 2", 2002, true);
+        /**
+         * Test creates a new product
+         */
+        @Test
+        void testCreateProduct() throws Exception {
+                ProductModel newProduct = new ProductModel("Book 2", "mystery", "Author 2", 2002, true);
 
-        when(productService.createProduct(any())).thenReturn(true);
+                when(productService.createProduct(any())).thenReturn(true);
 
-        mockMvc.perform(post("/products")
-                .contentType("application/json")
-                .content(
-                        "{\"id\":1,\"title\":\"New Product\",\"description\":\"Description\",\"price\":20.0,\"quantity\":2}"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Product created successfully"));
-    }
+                mockMvc.perform(post("/products")
+                                .contentType("application/json")
+                                .content(
+                                                "{\"id\":1,\"title\":\"New Product\",\"description\":\"Description\",\"price\":20.0,\"quantity\":2}"))
+                                .andExpect(status().isOk())
+                                .andExpect(content().string("Product created successfully"));
+        }
 
-    @Test
-    void testUpdateProduct() throws Exception {
-        ProductModel updatedProduct = new ProductModel("Book 1", "fantasy", "Author 1", 2005, true);
+        /**
+         * Test updates a new product
+         */
+        @Test
+        void testUpdateProduct() throws Exception {
+                ProductModel updatedProduct = new ProductModel("Book 1", "fantasy", "Author 1", 2005, true);
 
-        when(productService.updateProduct(any())).thenReturn(true);
+                when(productService.updateProduct(any())).thenReturn(true);
 
-        mockMvc.perform(put("/products/1")
-                .contentType("application/json")
-                .content(
-                        "{\"id\":1,\"title\":\"Updated Product\",\"description\":\"New Desc\",\"price\":18.0,\"quantity\":5}"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Product updated successfully"));
-    }
+                mockMvc.perform(put("/products/1")
+                                .contentType("application/json")
+                                .content(
+                                                "{\"id\":1,\"title\":\"Updated Product\",\"description\":\"New Desc\",\"price\":18.0,\"quantity\":5}"))
+                                .andExpect(status().isOk())
+                                .andExpect(content().string("Product updated successfully"));
+        }
 
-    @Test
-    void testDeleteProduct() throws Exception {
-        when(productService.deleteProduct(any())).thenReturn(true);
+        /**
+         * Test deletes a new product
+         */
+        @Test
+        void testDeleteProduct() throws Exception {
+                when(productService.deleteProduct(any())).thenReturn(true);
 
-        mockMvc.perform(delete("/products/1"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Product deleted successfully"));
-    }
+                mockMvc.perform(delete("/products/1"))
+                                .andExpect(status().isOk())
+                                .andExpect(content().string("Product deleted successfully"));
+        }
 }

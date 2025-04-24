@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+/**
+ * registration model for new users
+ */
 @Entity
 @Table(name = "users")
 public class RegistrationModel {
@@ -42,58 +45,129 @@ public class RegistrationModel {
     private String password;
 
     // Getters and Setters
+
+    /**
+     * getter for id
+     * 
+     * @return id
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * setter for id
+     * 
+     * @param id id to set
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * getter for firstname
+     * 
+     * @return firstname
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * setter for firstname
+     * 
+     * @param firstName firstname to set
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * getter for lastname
+     * 
+     * @return lastname
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * setter for lastname
+     * 
+     * @param lastName lastname to set
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * getter for email
+     * 
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * setter for email
+     * 
+     * @param email email to set
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * getter for phonenumber
+     * 
+     * @return phonenumber
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /**
+     * setter for phonenumber
+     * 
+     * @param phoneNumber phonenumber to set
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * getter for username
+     * 
+     * @return username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * setter for username
+     * 
+     * @param username username to set
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * getter for password
+     * 
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * setter for password
+     * 
+     * @param password password to set
+     */
     public void setPassword(String password) {
         this.password = password;
     }

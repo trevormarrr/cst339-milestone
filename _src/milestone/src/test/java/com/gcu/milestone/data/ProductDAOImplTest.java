@@ -16,6 +16,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.gcu.milestone.data.mapper.ProductMapper;
 import com.gcu.milestone.model.ProductModel;
 
+/**
+ * ProductDAOImpl Unit Test
+ */
 public class ProductDAOImplTest {
 
     @Mock
@@ -24,11 +27,17 @@ public class ProductDAOImplTest {
     @InjectMocks
     private ProductDAOImpl productDAO;
 
+    /**
+     * Starts Mockito before each test case
+     */
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
+    /**
+     * Tests testFindByTitle method to ensureit correctly returns product
+     */
     @Test
     void testFindByTitle() {
         ProductModel mockProduct = new ProductModel("Test Product", "Genre", "Author", 2021, true);
@@ -46,6 +55,9 @@ public class ProductDAOImplTest {
         assertEquals("Genre", result.getGenre());
     }
 
+    /**
+     * Tests the FindAll metho to ensure it retrieves all products from db
+     */
     @Test
     void testFindAll() {
         List<ProductModel> mockProducts = Arrays.asList(
@@ -65,6 +77,9 @@ public class ProductDAOImplTest {
         assertEquals("Product 1", result.get(0).getTitle());
     }
 
+    /**
+     * Tests CreateProduct to ensure a product can be added to db
+     */
     @Test
     void testCreateProduct() {
         ProductModel newProduct = new ProductModel("New Product", "New Genre", "New Author", 2023, false);
@@ -80,6 +95,9 @@ public class ProductDAOImplTest {
         assertTrue(result);
     }
 
+    /**
+     * Tests UpdateProduct to ensure a product can be updated/edited
+     */
     @Test
     void testUpdateProduct() {
         ProductModel updatedProduct = new ProductModel("Updated Product", "Updated Genre", "Updated Author", 2023,
@@ -96,6 +114,9 @@ public class ProductDAOImplTest {
         assertTrue(result);
     }
 
+    /**
+     * Tests DeleteProduct to ensure a product can be deleted
+     */
     @Test
     void testDeleteProduct() {
         ProductModel productToDelete = new ProductModel("Product To Delete", "Genre", "Author", 2021, true);

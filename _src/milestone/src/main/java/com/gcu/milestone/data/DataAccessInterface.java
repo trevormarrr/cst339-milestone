@@ -2,6 +2,10 @@ package com.gcu.milestone.data;
 
 import java.util.List;
 
+/**
+ * Interface for DAO
+ * CRUD operations for any type of entity T
+ */
 public interface DataAccessInterface<T> {
     // retrieves all records of type T
     public List<T> findAll();

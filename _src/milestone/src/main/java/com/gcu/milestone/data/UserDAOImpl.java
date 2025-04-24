@@ -12,17 +12,27 @@ import org.springframework.stereotype.Repository;
 import com.gcu.milestone.data.mapper.UserMapper;
 import com.gcu.milestone.model.RegistrationModel;
 
+/**
+ * UserDAOImpl
+ */
 @Repository
 public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
 
     private JdbcTemplate jdbcTemplate;
 
-    // constructor
+    /**
+     * constructor
+     * 
+     * @param dataSource
+     */
     @Autowired
     public UserDAOImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * find all users
+     */
     @Override
     public List<RegistrationModel> findAll() {
         String sql = "SELECT * FROM users";
@@ -34,6 +44,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
+    /**
+     * find user by id
+     */
     @Override
     public RegistrationModel findById(int id) {
         String sql = "SELECT * FROM users WHERE id = ?";
@@ -45,6 +58,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
+    /**
+     * find user by username
+     */
     @Override
     public RegistrationModel findByUsername(String username) {
         String sql = "SELECT * FROM users WHERE username = ?";
@@ -55,6 +71,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
+    /**
+     * create user
+     */
     @Override
     public boolean create(RegistrationModel user) {
         String sql = "INSERT INTO users (first_name, last_name, email, phone_number, username, password) VALUES (?, ?, ?, ?, ?, ?)";
@@ -73,6 +92,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
+    /**
+     * update user
+     */
     @Override
     public boolean update(RegistrationModel user) {
         String sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?, phone_number = ?, password = ? WHERE username = ?";
@@ -91,6 +113,9 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
+    /**
+     * delete user
+     */
     @Override
     public boolean delete(RegistrationModel user) {
         String sql = "DELETE FROM users WHERE username = ?";
@@ -103,8 +128,13 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
         }
     }
 
-    // Additional utility method
-    // checks if usernme exists in db
+    /**
+     * Additional utility method
+     * checks if usernme exists in db
+     * 
+     * @param username username to check
+     * @return existing user
+     */
     public boolean exists(String username) {
         String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
         int count = jdbcTemplate.queryForObject(sql, Integer.class, username);

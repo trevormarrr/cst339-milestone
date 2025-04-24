@@ -477,4 +477,3 @@ The APIs have been tested using Postman with the following scenarios:
 - Accessing endpoints with valid credentials
 - Retrieving single and multiple products
 - Error handling for invalid product IDs
-
