@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+/**
+ * Controller for testing security configurations and user authentication
+ */
 public class SecurityTestController {
 
     /**
-     * Display user authenticated username & role
-     * 
-     * @return granted authorities
+     * Display user authenticated username and role
+     * @return string containing authentication details
      */
     @GetMapping("/test/auth")
     public String testAuth() {

@@ -24,10 +24,8 @@ public class ProductDAOImpl implements ProductDAO {
     private final JdbcTemplate jdbcTemplate;
 
     /**
-     * constructor
-     * initializes JdbcTemplate with data source
-     * 
-     * @param dataSource
+     * Constructor for ProductDAOImpl
+     * @param dataSource The data source for database connections
      */
     @Autowired
     public ProductDAOImpl(DataSource dataSource) {

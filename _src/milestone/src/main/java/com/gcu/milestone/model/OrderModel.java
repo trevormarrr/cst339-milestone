@@ -1,5 +1,8 @@
 package com.gcu.milestone.model;
 
+/**
+ * Model class representing an order in the system
+ */
 public class OrderModel {
 
 	/**

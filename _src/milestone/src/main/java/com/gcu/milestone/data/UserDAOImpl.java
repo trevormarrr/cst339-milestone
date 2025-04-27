@@ -21,9 +21,8 @@ public class UserDAOImpl implements DataAccessInterface<RegistrationModel> {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * constructor
-     * 
-     * @param dataSource
+     * Constructor for UserDAOImpl
+     * @param dataSource The data source for database connections
      */
     @Autowired
     public UserDAOImpl(DataSource dataSource) {

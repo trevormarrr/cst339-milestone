@@ -46,10 +46,11 @@ public class ProductController {
     }
 
     /**
-     * Handle create submission
-     * 
-     * @param model passes data to view
-     * @return create-product view
+     * Handles product creation
+     * @param productModel the product model containing the data
+     * @param bindingResult validation results
+     * @param model the Spring MVC model
+     * @return the view name to render
      */
     @PostMapping("/create-book/doCreate")
     public String doCreate(@Valid ProductModel productModel, BindingResult bindingResult, Model model) {

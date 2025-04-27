@@ -7,6 +7,9 @@ import com.gcu.milestone.data.ProductDAO;
 import com.gcu.milestone.model.ProductModel;
 
 @Service
+/**
+ * Service class handling product business logic
+ */
 public class ProductService {
 
     /**
@@ -20,11 +23,19 @@ public class ProductService {
      * Ensures ProductDAO is provided by Spring
      */
     @Autowired
+    /**
+     * Constructor for ProductService
+     * @param productDAO Data access object for products
+     */
     public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 
-    // create new product
+    /**
+     * Creates a new product
+     * @param product The product to create
+     * @return true if creation was successful
+     */
     public boolean createProduct(ProductModel product) {
         if (productDAO.findByTitle(product.getTitle()) != null) {
             return false; // false if product exists
@@ -32,27 +43,46 @@ public class ProductService {
         return productDAO.create(product); // create new prodcut in db if product doesn't exist
     }
 
-    // retrieve all products from db
+    /**
+     * Retrieves all products
+     * @return List of all products
+     */
     public List<ProductModel> getAllProducts() {
         return productDAO.findAll();
     }
 
-    // retrieve product by id
+    /**
+     * Retrieves a product by its ID
+     * @param id The ID of the product
+     * @return The found product or null
+     */
     public ProductModel getProductById(int id) {
         return productDAO.findById(id);
     }
 
-    // update existing product in db
+    /**
+     * Updates an existing product
+     * @param product The product to update
+     * @return true if update was successful
+     */
     public boolean updateProduct(ProductModel product) {
         return productDAO.update(product);
     }
 
-    // delete existing product in db
+    /**
+     * Deletes a product
+     * @param product The product to delete
+     * @return true if deletion was successful
+     */
     public boolean deleteProduct(ProductModel product) {
         return productDAO.delete(product);
     }
 
-    // Add this new method
+    /**
+     * Finds a product by its title
+     * @param title The title to search for
+     * @return The found product or null
+     */
     public ProductModel findByTitle(String title) {
         return productDAO.findByTitle(title);
     }

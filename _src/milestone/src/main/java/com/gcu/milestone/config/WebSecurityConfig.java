@@ -13,23 +13,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-/*
- * Main security configuration class for Spring Security
+/**
+ * Configuration class for web security settings
  */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    /*
-     * Configure password encryption
+    /**
+     * Configures the password encoder bean
+     * @return the password encoder instance
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // Use BCrypt for secure password hashing
     }
 
-    /*
-     * Configure authentication manager
+    /**
+     * Configures the authentication manager
+     * @param userDetailsService the user details service
+     * @param passwordEncoder the password encoder
+     * @return the authentication manager
      */
     @Bean
     public AuthenticationManager authenticationManager(
@@ -41,8 +45,11 @@ public class WebSecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
-    /*
-     * Configure security rules and filters
+    /**
+     * Configures the security filter chain
+     * @param http the HTTP security configuration
+     * @return the configured security filter chain
+     * @throws Exception if configuration fails
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gcu.milestone.model.LoginModel;
 
 /**
- * Handles routing for home, dashboard, & inventory pages
+ * Controller for main application pages
+ * Handles routing for home, dashboard, and inventory pages
  */
 @Controller
 @RequestMapping("/")

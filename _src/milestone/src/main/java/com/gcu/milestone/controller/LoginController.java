@@ -5,12 +5,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/*
- * Display form for User login
+/**
+ * Controller handling user login functionality
  */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+    /**
+     * Default constructor for LoginController
+     */
+    public LoginController() {
+    }
+
     /**
      * Handles GETrequest
      * 

@@ -6,9 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Maps each row of ResultSet to RegistrationModel object
+ * Maps database rows to RegistrationModel objects
  */
 public class UserMapper implements RowMapper<RegistrationModel> {
+    /**
+     * Default constructor for UserMapper
+     */
+    public UserMapper() {
+    }
+
     @Override
     public RegistrationModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         // Create new RegistrationModel object

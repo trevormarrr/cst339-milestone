@@ -36,7 +36,12 @@ public class ProductModel {
     }
 
     /**
-     * Constructor
+     * Creates a new product with the specified details
+     * @param title the title of the product
+     * @param genre the genre of the product
+     * @param author the author of the product
+     * @param year the publication year
+     * @param checkedOut whether the product is checked out
      */
     public ProductModel(String title, String genre, String author, Integer year, Boolean checkedOut) {
         this.title = title;

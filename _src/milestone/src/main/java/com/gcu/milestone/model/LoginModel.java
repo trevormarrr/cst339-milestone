@@ -3,7 +3,16 @@ package com.gcu.milestone.model;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+/**
+ * Model class representing login form data
+ */
 public class LoginModel {
+
+	/**
+	 * Default constructor for LoginModel
+	 */
+	public LoginModel() {
+	}
 
 	/**
 	 * login model for users with existing account

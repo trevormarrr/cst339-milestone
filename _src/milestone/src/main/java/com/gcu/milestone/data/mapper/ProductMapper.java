@@ -6,9 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Maps each row of ResultSet to ProductModel object
+ * Maps database rows to ProductModel objects
  */
 public class ProductMapper implements RowMapper<ProductModel> {
+    /**
+     * Default constructor for ProductMapper
+     */
+    public ProductMapper() {
+    }
+
     @Override
     public ProductModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         // create new product model object
