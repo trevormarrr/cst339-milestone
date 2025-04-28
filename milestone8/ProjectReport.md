@@ -33,7 +33,9 @@
 
 ## Planning Documentation
 ### Initial Planning:
-- *For milestone 8, ....
+- For milestone 8, we reviewed and identified classes and methods.
+- Created consistent javadoc comments, ensuring they included reasoning to method functionality, parameters, and return types.
+- Created a javadoc file to demonstrate the packages, classes, methods, and descriptions. 
 
 ### Retrospective Results:
 The following table should be completed after each Retrospective on things that went well (keep doing)
