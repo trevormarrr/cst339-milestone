@@ -42,14 +42,14 @@ The following table should be completed after each Retrospective on things that 
 <br>
 <br>
 
-| *What Went Well |
+| What Went Well |
 | --------------- |
 | N/A |
 
 
 The following table should be completed after each Retrospective on things that didn’t go well (stop doing) and what would be done differently next time with an action plan to improve (try doing and continuous improvement)
 
-| *What Did Not Go Well | Action Plan | Due Date  |
+| What Did Not Go Well | Action Plan | Due Date  |
 | -------------------- | ----------- | --------- |
 | N/A | N/A  | April 27 |
 
