@@ -23,7 +23,7 @@
 ### Screencast URL:
 - The URL that can be used to access your screencast demonstration video for the respective assignment
 
-[Screencast] (https://youtu.be/7Im9HVVB8Js)
+[screencast](https://youtu.be/7Im9HVVB8Js)
 
 **REST API DOCUMENTATION AT THE BOTTOM OF PROJECT REPORT**
 
