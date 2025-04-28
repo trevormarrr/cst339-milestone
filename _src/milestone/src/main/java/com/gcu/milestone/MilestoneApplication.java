@@ -11,18 +11,19 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("com.gcu.milestone")
 public class MilestoneApplication {
-    /**
-     * Default constructor for MilestoneApplication
-     */
-    public MilestoneApplication() {
-    }
+	/**
+	 * Default constructor for MilestoneApplication
+	 */
+	public MilestoneApplication() {
+	}
 
-    /**
-     * Main entry point of the application
-     * @param args command line arguments
-     */
-    public static void main(String[] args) {
-        SpringApplication.run(MilestoneApplication.class, args);
-    }
+	/**
+	 * Main entry point of the application
+	 * 
+	 * @param args command line arguments
+	 */
+	public static void main(String[] args) {
+		SpringApplication.run(MilestoneApplication.class, args);
+	}
 
 }
