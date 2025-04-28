@@ -1,0 +1,8 @@
+com.gcu.milestone
+com.gcu.milestone.config
+com.gcu.milestone.controller
+com.gcu.milestone.data
+com.gcu.milestone.data.mapper
+com.gcu.milestone.model
+com.gcu.milestone.repository
+com.gcu.milestone.service
