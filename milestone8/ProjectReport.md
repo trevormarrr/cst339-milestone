@@ -15,7 +15,7 @@
 
 ### Weekly Team Status Summary (UseCase)
 ![Usercase](usercase.png)
-- *This week we....
+- This week we focused on enhancing the clairt of our code by adding/fixing any javadoc comments to our program. We documented the functionality of each class in the milestone, providing clear explanations for the parameters, return values, and purpose of each method. We also created a new javadoc file for the whole milestone, which was efforlessly linked to the rest of the application, ensuring all necessary dependenices were added and functionality was preserved. 
 
 ### GIT URL
 - The git URL that can be used to clone your code and design artifacts
